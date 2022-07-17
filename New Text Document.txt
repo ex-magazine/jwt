@@ -1,3 +1,4 @@
+https://www.bezkoder.com/angular-10-jwt-auth/
 echo "# jwt" >> README.md
 git init
 git add README.md
@@ -5,3 +6,18 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin git@github.com:ex-magazine/jwt.git
 git push -u origin main
+
+
+ng g s _services/auth
+ng g s _services/token-storage
+ng g s _services/user
+ng g c login
+ng g c register
+ng g c home
+ng g c profile
+ng g c board-admin
+ng g c board-moderator
+ng g c board-user
+
+npm install
+node server.js
