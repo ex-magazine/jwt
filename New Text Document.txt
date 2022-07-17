@@ -19,6 +19,9 @@ ng g c board-admin
 ng g c board-moderator
 ng g c board-user
 
+
+ng g guard auth
+
 npm install
 node server.js
 
@@ -27,5 +30,5 @@ App-SSO
 https://github.com/manfredsteyer/angular-oauth2-oidc
 npm install angular-oauth2-oidc --save
 npm i angular-oauth2-oidc-jwks --save
-
+https://stackoverflow.com/questions/58743119/how-do-i-implement-authenication-code-flow-using-angular-oauth2-oidc-in-angular
 https://github.com/shaheershukur/Angular-Single-Sign-On-OAuth2-OIDC-
