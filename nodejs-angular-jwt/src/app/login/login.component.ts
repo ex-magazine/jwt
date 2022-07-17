@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { StorageService } from '../_services/storage.service';
+import { TokenStorageService } from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -18,12 +19,16 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authService: AuthService, private storageService: StorageService) { }
+  constructor(private authService: AuthService, private storageService: StorageService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
-    if (this.storageService.isLoggedIn()) {
+    // if (this.storageService.isLoggedIn()) {
+    //   this.isLoggedIn = true;
+    //   this.roles = this.storageService.getUser().roles;
+    // }
+    if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.roles = this.storageService.getUser().roles;
+      this.roles = this.tokenStorage.getUser().roles;
     }
   }
 
@@ -32,11 +37,15 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(username, password).subscribe({
       next: data => {
-        this.storageService.saveUser(data);
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUser(data);
+
+        //this.storageService.saveUser(data);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.storageService.getUser().roles;
+        //this.roles = this.storageService.getUser().roles;
+        this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
       },
       error: err => {
