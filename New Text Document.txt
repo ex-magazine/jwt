@@ -21,3 +21,7 @@ ng g c board-user
 
 npm install
 node server.js
+
+npm install angular-oauth2-oidc --save
+npm i angular-oauth2-oidc-jwks --save
+
