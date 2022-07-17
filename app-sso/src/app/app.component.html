@@ -3,3 +3,4 @@
   <button class="btn btn-light" (click)="logout()" *ngIf="token">Logout</button>
 </div>
 <app-home *ngIf="token"></app-home>
+<router-outlet></router-outlet>

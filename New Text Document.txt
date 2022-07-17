@@ -22,6 +22,10 @@ ng g c board-user
 npm install
 node server.js
 
+
+App-SSO
+https://github.com/manfredsteyer/angular-oauth2-oidc
 npm install angular-oauth2-oidc --save
 npm i angular-oauth2-oidc-jwks --save
 
+https://github.com/shaheershukur/Angular-Single-Sign-On-OAuth2-OIDC-
