@@ -1,0 +1,18 @@
+<main>
+  <h1>Home</h1>
+  <ng-container *ngIf="user.isConnected">
+    <p *ngIf="!user.content.adUser">Hello {{ user.content.displayName }}!</p>
+    <p *ngIf="user.content.adUser">
+      Hello {{ user.content.adUser.givenName }} {{ user.content.adUser.sn }} (AD)!
+    </p>
+    <button class="primary" (click)="disconnect()">Disconnect</button>
+  </ng-container>
+
+  <ng-container *ngIf="!user.isConnected">
+    <p>Nobody is connected.</p>
+    <button class="primary" routerLink="/login">Login page</button>
+  </ng-container>
+
+  <button (click)="showSecret()">What is my secret ?</button>
+  <div>{{ secret }}</div>
+</main>
